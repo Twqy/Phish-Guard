@@ -11,9 +11,10 @@ Phish Guard is an AI-powered email security tool that helps detect phishing atte
 - 🤖 AI-powered phishing detection
 - 📊 Confidence scoring system
 - 🎯 Suspicious phrase identification
+- 
+![analyzetext](https://github.com/user-attachments/assets/1c72f4cd-808d-4971-86e3-6d275d384e9e)
+![analyzegmail](https://github.com/user-attachments/assets/f97b8780-253a-422f-b8be-720a6b8708bd)
 
-https://github.com/Twqy/Phish-Guard/issues/2#issue-2873022745
-https://github.com/Twqy/Phish-Guard/issues/1#issue-2873022581
 
 ## 🛠️ Technology Stack
 
