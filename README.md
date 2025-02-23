@@ -21,7 +21,7 @@ Phish Guard is an AI-powered email security tool that helps detect phishing atte
 ### Frontend
 
 - React.js
-- Modern CSS
+- CSS
 - Lucide React Icons
 
 ### Backend
