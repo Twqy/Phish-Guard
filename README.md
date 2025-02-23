@@ -1,40 +1,41 @@
 # 🛡️ Phish Guard
 
-AI-powered email phishing detection tool that analyzes emails and attachments for potential security threats.
+Phish Guard is an AI-powered email security tool that helps detect phishing attempts using advanced machine learning. It analyzes email content, attachments, and can integrate directly with Gmail to scan your inbox.
 
 ## 🚀 Features
 
-- Real-time email analysis with GPT-4o-mini
-- Image and PDF text extraction
-- Suspicious phrase detection
-- Confidence scoring system
-- File attachment analysis
-- Modern, responsive UI
+- 📧 Real-time email content analysis
+- 📎 Image and PDF attachment scanning
+- 🔍 Gmail inbox integration
+- 🤖 AI-powered phishing detection
+- 📊 Confidence scoring system
+- 🎯 Suspicious phrase identification
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
 ### Frontend
 
 - React.js
-- Custom CSS
+- Modern CSS
 - Lucide React Icons
 
 ### Backend
 
 - Python Flask
 - OpenAI GPT-4o-mini
+- Gmail API
 - Tesseract OCR
 - PyPDF2
-- Flask-CORS
 
-## 📋 Prerequisites
+## ⚙️ Prerequisites
 
-- Node.js (v14+)
+- Node.js (v16+)
 - Python (v3.8+)
-- OpenAI API key
 - Tesseract OCR
+- Google Cloud Platform account
+- OpenAI API key
 
-## ⚙️ Installation
+## 📥 Installation
 
 ### Backend Setup
 
@@ -71,6 +72,14 @@ npm install
 npm start
 ```
 
+### Gmail API Setup
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com)
+2. Create a new project
+3. Enable Gmail API
+4. Create OAuth 2.0 credentials
+5. Download credentials.json to `/Back end/config/`
+
 ## 🚦 Running the Application
 
 1. Start the backend server:
@@ -80,7 +89,7 @@ cd "Back end"
 python app.py
 ```
 
-2. In a new terminal, start the frontend:
+2. Start the frontend (in a new terminal):
 
 ```bash
 cd "Front end"
@@ -93,17 +102,31 @@ npm start
 
 - Never commit `.env` files
 - Keep your API keys private
+- Store credentials.json securely
 - Review file uploads carefully
-- Monitor usage and costs
+- Monitor API usage and costs
+
+## 💡 Usage
+
+1. **Text Analysis**: Paste suspicious email content
+2. **File Analysis**: Upload email screenshots or PDFs
+3. **Gmail Integration**: Analyze recent emails directly
+4. **Review Results**: Check confidence scores and suspicious elements
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create feature branch
-3. Commit changes
-4. Push to branch
-5. Open pull request
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📜 License
+## 📝 License
 
-MIT License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- OpenAI for GPT-4o-mini
+- Google Cloud Platform
+- Tesseract OCR

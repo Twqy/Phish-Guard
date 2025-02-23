@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 import EmailInput from './components/EmailInput';
 import ResultDisplay from './components/ResultDisplay';
+import GmailAnalysis from './components/GmailAnalysis';
 
 function App() {
     const [result, setResult] = useState(null);
@@ -50,6 +51,7 @@ function App() {
                     </div>
                 )}
                 {result && <ResultDisplay result={result} />}
+                <GmailAnalysis />
             </div>
         </div>
     );

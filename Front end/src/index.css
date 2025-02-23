@@ -201,6 +201,11 @@ body {
     top: 2rem;
     max-height: calc(100vh - 4rem);
     overflow-y: auto;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #fff1f2;
+    border-radius: 0.5rem;
+    border: 1px solid #fecdd3;
 }
 
 .suspicious-header {
@@ -394,4 +399,168 @@ body {
 
 .remove-image:hover {
     background: rgba(0, 0, 0, 0.7);
+}
+
+.gmail-analysis-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.email-result {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin: 1rem 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;  /* Take full width of parent (which is 60% of screen) */
+}
+
+.email-result h4 {
+    font-size: 1.25rem;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.sender {
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+
+.analysis-text {
+    margin-top: 1rem;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.suspicious-phrases h5 {
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+}
+
+.suspicious-phrases ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.suspicious-phrases li {
+    color: #991b1b;
+    padding: 0.25rem 0;
+}
+
+.icon-safe {
+    color: #059669;
+}
+
+.icon-danger {
+    color: #dc2626;
+}
+
+.confidence-score {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    margin: 1rem 0;
+    color: #3b82f6;
+}
+
+.analysis {
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
+.error-message {
+    color: #ef4444;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: #fee2e2;
+    border-radius: 0.5rem;
+}
+
+.gmail-analysis {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.analyze-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: fit-content;  /* Adjust button width to content */
+}
+
+.analyze-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #ff0000;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #ff0000;
+    border-radius: 0.5rem;
+}
+
+.email-result {
+    margin: 1rem 0;
+    margin-top: 20px;   
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+}
+
+.analysis {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+.analysis-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+}
+
+.analysis-section {
+    margin-bottom: 1rem;
+}
+
+.analysis-section h4 {
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.analysis-section p {
+    color: #1f2937;
+    line-height: 1.5;
 }

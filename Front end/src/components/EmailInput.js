@@ -115,12 +115,12 @@ const EmailInput = ({ onAnalyze, isLoading }) => {
 
             <button
                 type="submit"
-                disabled={isLoading || (!emailText.trim() && files.length === 0 && pastedImages.length === 0)}
-                className={`button ${isLoading || (!emailText.trim() && files.length === 0 && pastedImages.length === 0) ? '' : 'button-primary'}`}
+                disabled={isLoading}
+                className="button button-primary"
             >
                 {isLoading ? (
                     <>
-                        <Loader2 size={20} className="animate-spin" />
+                        <Loader2 className="loading-spinner" size={20} />
                         Analyzing...
                     </>
                 ) : (

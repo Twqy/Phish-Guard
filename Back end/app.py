@@ -10,6 +10,7 @@ from PIL import Image
 import PyPDF2
 import io
 from flask import send_from_directory
+from gmail_integration import get_gmail_service, fetch_recent_emails, test_email_fetch
 
 # Add near the top of your file
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
@@ -225,6 +226,33 @@ def analyze_email():
     result = analyze_email_with_ai(email_text)
     return jsonify(result)
 
+@app.route('/analyze-gmail', methods=['POST'])
+def analyze_gmail():
+    try:
+        service = get_gmail_service()
+        emails = fetch_recent_emails(service, max_emails=3)
+        
+        results = []
+        for email in emails:
+            analysis = analyze_email_with_ai(email['content'])
+            results.append({
+                'subject': email['subject'],
+                'sender': email['sender'],
+                'content': email['content'][:200] + '...' if len(email['content']) > 200 else email['content'],
+                'analysis': analysis
+            })
+        
+        return jsonify({
+            'status': 'success',
+            'count': len(results),
+            'emails': results
+        })
+    except Exception as e:
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        }), 500
+
 @app.route('/test-ocr', methods=['GET'])
 def test_ocr():
     try:
@@ -241,10 +269,54 @@ def test_ocr():
             "tesseract_path": pytesseract.pytesseract.tesseract_cmd
         })
 
+@app.route('/test-gmail', methods=['GET'])
+def test_gmail():
+    try:
+        service = get_gmail_service()
+        profile = service.users().getProfile(userId='me').execute()
+        return jsonify({
+            "status": "success",
+            "email": profile['emailAddress']
+        })
+    except Exception as e:
+        # Here's where you return 500
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
+
+@app.route('/test-gmail-fetch', methods=['GET'])
+def test_gmail_fetch():
+    try:
+        service = get_gmail_service()
+        result = test_email_fetch(service)
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+@app.route('/test-config', methods=['GET'])
+def test_config():
+    return jsonify({
+        "openai_key_configured": bool(OPENAI_API_KEY),
+        "model_name": MODEL_NAME
+    })
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                              'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.errorhandler(500)
+def handle_500_error(e):
+    return jsonify({
+        'status': 'error',
+        'message': str(e),
+        'type': type(e).__name__,
+        'details': {
+            'file': e.__traceback__.tb_frame.f_code.co_filename,
+            'line': e.__traceback__.tb_lineno
+        }
+    }), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

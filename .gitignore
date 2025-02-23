@@ -20,6 +20,8 @@ node_modules/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*
+*.env
 
 # Build files
 /Front end/build/
@@ -49,3 +51,7 @@ yarn-error.log*
 /dist
 
 build/
+
+# OAuth credentials
+/Back end/config/credentials.json
+/Back end/token.json
